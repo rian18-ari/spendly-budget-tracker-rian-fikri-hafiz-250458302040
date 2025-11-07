@@ -37,7 +37,7 @@ Pastikan kamu telah menginstal:
 
 1.  **Clone Repositori:**
     ```bash
-    git clone [LINK_REPO_KAMU]
+    git clone https://github.com/rian18-ari/spendly-app
     cd spendly
     ```
 
@@ -69,8 +69,10 @@ Pastikan kamu telah menginstal:
     ```bash
     php artisan db:seed
     ```
+    *note:
+    untuk seeder nya masih default jadi kalau mau menggunakan seeder mohon di sesuaikan dulu ya 🙏🙏
 
-7.  **Jalankan Aplikasi:**
+8.  **Jalankan Aplikasi:**
     ```bash
     php artisan serve
     ```
@@ -98,6 +100,15 @@ Jadi kalau kamu pakai atau mau kontribusi:
 
 Kalau nemu bug atau ide keren, langsung buka **issue** atau **pull request**.  
 Semakin banyak kontribusi, semakin mantul aplikasi ini! 🚀
+
+## 🏷️ Label & Issue
+
+Untuk memudahkan kontribusi, gunakan label di GitHub:
+- bug → error / masalah aplikasi
+- enhancement → ide fitur baru
+- help wanted → tugas ringan untuk pemula
+- good first issue → cocok untuk kontributor baru
+- Cek issue berlabel good first issue atau help wanted jika ingin kontribusi.
 
    
 ---
