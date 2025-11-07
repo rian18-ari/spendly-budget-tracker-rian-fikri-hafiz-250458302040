@@ -84,5 +84,20 @@ Kami menyambut kontribusi! Jika kamu menemukan *bug* atau memiliki ide fitur bar
 3.  Lakukan *commit* perubahan (`git commit -m 'Tambahkan Fitur X'`).
 4.  *Push* ke *branch* (`git push origin fitur/nama-fitur`).
 5.  Buka *Pull Request* (PR).
+  
+## ⚠️ Catatan / Disclaimer
+
+CMIIW (Correct Me If I'm Wrong) 😅 Spendly masih dalam tahap **pengembangan**.  
+Masih banyak hal yang bisa diperbaiki, fitur yang bisa ditambah, dan bug yang mungkin muncul.  
+
+Jadi kalau kamu pakai atau mau kontribusi:  
+
+- Semua masukan & PR **sangat welcome**!  
+- Jangan kaget kalau ada beberapa fitur yang belum 100% rampung.  
+- Tujuan utama: belajar bareng, kolaborasi, dan bikin Spendly makin kece! 🎉  
+
+Kalau nemu bug atau ide keren, langsung buka **issue** atau **pull request**.  
+Semakin banyak kontribusi, semakin mantul aplikasi ini! 🚀
+
    
 ---
