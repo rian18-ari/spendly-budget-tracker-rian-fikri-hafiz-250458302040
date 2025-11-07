@@ -1,61 +1,88 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 Spendly
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Spendly** adalah aplikasi manajemen pengeluaran dan pemantauan anggaran dinas (budget *travelling*) berbasis web yang dibangun menggunakan **TALL Stack** (Tailwind CSS, Alpine.js, Laravel, Livewire). Spendly dirancang untuk memberikan visibilitas penuh kepada tim administrasi dalam mengelola dan melacak anggaran karyawan secara *real-time*.
 
-## About Laravel
+## ✨ Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* **Manajemen Anggaran (Budget Allocation):** Admin dapat menugaskan anggaran (budget) spesifik ke satu atau lebih karyawan untuk periode dinas tertentu.
+* **Pemantauan Real-time:** Melacak pengeluaran karyawan secara instan berkat teknologi Livewire, memungkinkan deteksi dini potensi *overspending*.
+* **Manajemen Pengeluaran (Transaksi):** Karyawan dapat mencatat transaksi pengeluaran dinas mereka dengan detail (nominal, keterangan, tanggal).
+* **Laporan Finansial:** Menghasilkan laporan terperinci berdasarkan budget, periode waktu, atau pengguna, yang memudahkan rekonsiliasi dan audit keuangan.
+* **Otentikasi Berbasis Peran (Role-Based Auth):** Memisahkan akses antara pengguna **Admin** dan **Karyawan**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 💻 Teknologi yang Digunakan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Spendly dibangun di atas fondasi modern dan *reactive* dari TALL Stack:
 
-## Learning Laravel
+| Teknologi | Peran dalam Spendly |
+| :--- | :--- |
+| **Laravel** (Backend) | Framework PHP yang tangguh dan elegan untuk logika bisnis dan API. |
+| **Livewire** (Frontend Reactive) | Membuat antarmuka pengguna yang dinamis dan *reactive* tanpa menulis banyak JavaScript. |
+| **Alpine.js** (Interaksi Frontend) | Menangani interaktivitas DOM minimal dan ringan. |
+| **Tailwind CSS** (Styling) | Kerangka kerja CSS utilitas-pertama untuk desain yang cepat dan konsisten. |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📦 Instalasi
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Ikuti langkah-langkah berikut untuk menginstal dan menjalankan Spendly di lingkungan lokal kamu:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Persyaratan
 
-## Laravel Sponsors
+Pastikan kamu telah menginstal:
+* PHP (>= 8.1)
+* Composer
+* Node.js & NPM
+* Database (MySQL, PostgreSQL, atau SQLite)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Langkah-langkah
 
-### Premium Partners
+1.  **Clone Repositori:**
+    ```bash
+    git clone [LINK_REPO_KAMU]
+    cd spendly
+    ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2.  **Instal Dependensi PHP:**
+    ```bash
+    composer install
+    ```
 
-## Contributing
+3.  **Konfigurasi Lingkungan:**
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+    *Edit file `.env` dan atur kredensial database.*
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4.  **Instal Dependensi Frontend & Build Aset:**
+    ```bash
+    npm install
+    npm run dev  # Gunakan npm run watch untuk pengembangan
+    ```
 
-## Code of Conduct
+5.  **Migrasi Database:**
+    ```bash
+    php artisan migrate
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6.  **Seeder (Opsional):**
+    *Untuk mengisi data awal (misalnya, akun Admin default), jalankan:*
+    ```bash
+    php artisan db:seed
+    ```
 
-## Security Vulnerabilities
+7.  **Jalankan Aplikasi:**
+    ```bash
+    php artisan serve
+    ```
+    Aplikasi Spendly kini harus dapat diakses di `http://127.0.0.1:8000`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🤝 Kontribusi
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Kami menyambut kontribusi! Jika kamu menemukan *bug* atau memiliki ide fitur baru, silakan:
+1.  *Fork* repositori ini.
+2.  Buat *branch* baru (`git checkout -b fitur/nama-fitur`).
+3.  Lakukan *commit* perubahan (`git commit -m 'Tambahkan Fitur X'`).
+4.  *Push* ke *branch* (`git push origin fitur/nama-fitur`).
+5.  Buka *Pull Request* (PR).
+   
+---
