@@ -2,8 +2,7 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\budget_master;
-use App\Models\BudgetMaster;
+use App\Models\budgetmaster;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -34,7 +33,7 @@ class FormBudgetMaster extends Component
         $user = Auth::user();
         // dd($user);
 
-        BudgetMaster::create([
+        budgetmaster::create([
             'user_id' => $user->id,
             'budget' => $this->budget,
             'tahun_anggaran' => $this->tahun_anggaran,
