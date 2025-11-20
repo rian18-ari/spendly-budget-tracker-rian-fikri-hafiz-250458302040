@@ -87,17 +87,14 @@ class FormTransaksi extends Component
     {
         $datauser = Auth::user();
         $dataid = $datauser->id;
-        $budget = DB::table('budget_users')->where('user_id', $dataid)->pluck('budget_id');
+        $budget = DB::table('budget_users')->where('user_id', $dataid)->pluck('budget_id')->toArray();
         
         // dd($pilihanbudget);
         
-        if($budget->isNotEmpty())
-        {
-           $pilihanbudget = budgets::whereIn('id', $budget)->get();
-        } else {
-            $pilihanbudget = null;
-        }
-        
+         $pilihanbudget = !empty($budget)
+        ? budgets::whereIn('id', $budget)->get()
+        : null;
+
         return view('livewire.karyawan.form-transaksi', [
             'pilihanbudget' => $pilihanbudget
         ]);
