@@ -44,6 +44,19 @@
                      @enderror
                  </div>
              </div>
+             {{-- no hp --}}
+             <div>
+                 <label for="no_hp" class="block text-sm font-medium text-gray-900">Password</label>
+                 <div class="mt-1">
+                     <input type="text" wire:model="no_hp" id="no_hp"
+                         class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                     @error('no_hp')
+                         <span class="text-sm text-red-500">
+                             {{ $message }}
+                         </span>
+                     @enderror
+                 </div>
+             </div>
              {{-- role --}}
 
              <div>
