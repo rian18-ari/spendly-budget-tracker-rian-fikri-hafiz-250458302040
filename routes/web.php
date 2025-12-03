@@ -7,8 +7,10 @@ use App\Livewire\Admin\ChartBudget;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Admin\EditBudget;
 use App\Livewire\Admin\EditKaryawan;
+use App\Livewire\Admin\EditTransaksi;
 use App\Livewire\Admin\FormBudget;
 use App\Livewire\Admin\FormBudgetMaster;
+use App\Livewire\Admin\GantiPassword;
 use App\Livewire\Admin\Karyawanlist;
 use App\Livewire\Admin\Tambahkaryawan;
 use App\Livewire\Admin\Transaksi as AdminTransaksi;
@@ -21,6 +23,7 @@ use App\Livewire\Auth\Verify;
 use App\Livewire\Karyawan\ChartKaryawan;
 use App\Livewire\Karyawan\Dashboard;
 use App\Livewire\Karyawan\FormTransaksi;
+use App\Livewire\Karyawan\GantiPassword as KaryawanGantiPassword;
 use App\Livewire\Karyawan\Transaksi;
 use Illuminate\Support\Facades\Route;
 
@@ -44,9 +47,7 @@ Route::prefix('karyawan')->middleware(['auth','role:karyawan'])
     Route::get('/transaksi', Transaksi::class )->name('transaksi');
     Route::get('/transaksi/create', FormTransaksi::class)->name('transaksi.create');
     Route::get('/chart' , ChartKaryawan::class)->name('chart');
-    Route::get('/gantipassword/{id}', function ($id) {
-        return view('pages.karyawan.gantipassword', compact('id'));
-    })->name('karyawan.gantipassword');
+    Route::get('/gantipassword/{id}', KaryawanGantiPassword::class)->name('karyawan.gantipassword');
 });
 
 
@@ -64,12 +65,8 @@ Route::prefix('admin')->middleware(['auth','role:admin'])
     Route::get('/budget/tambah', FormBudget::class)->name('admin.tambahbudget');
     Route::get('/budget/anggaran', FormBudgetMaster::class)->name('admin.budget_master');
     Route::get('/chart', ChartBudget::class)->name('chartadmin');
-    Route::get('/transaksi/edit/{id}', function ($id) {
-        return view('pages.admin.edittransaksi', compact('id'));
-        })->name('admin.edittransaksi');
-    Route::get('/gantipassword/{id}', function ($id) {
-       return view('pages.admin.gantipassword', compact('id'));
-    })->name('admin.gantipassword'); 
+    Route::get('/transaksi/edit/{id}', EditTransaksi::class)->name('admin.edittransaksi');
+    Route::get('/gantipassword/{id}', GantiPassword::class)->name('admin.gantipassword'); 
 });
 
 
