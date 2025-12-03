@@ -1,3 +1,4 @@
+ @section('title', 'Karyawan')
  <div class="border-2 rounded-lg w-auto h-auto p-6 bg-amber-50">
      <div>
          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tambah Karyawan</h2>
@@ -9,7 +10,7 @@
              <div>
                  <label for="name" class="block text-sm font-medium text-gray-900">Name</label>
                  <div class="mt-1">
-                     <input type="text" wire:model="name" id="name"
+                     <input type="text" wire:model="name" id="name" placeholder="nama karyawan"
                          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                      @error('name')
                          <span class="text-sm text-red-500">
@@ -22,7 +23,7 @@
              <div>
                  <label for="email" class="block text-sm font-medium text-gray-900">email</label>
                  <div class="mt-1">
-                     <input type="email" wire:model="email" id="email"
+                     <input type="email" wire:model="email" id="email" placeholder="email karyawan"
                          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                      @error('email')
                          <span class="text-sm text-red-500">
@@ -35,7 +36,7 @@
              <div>
                  <label for="amount" class="block text-sm font-medium text-gray-900">Password</label>
                  <div class="mt-1">
-                     <input type="text" wire:model="password" id="password"
+                     <input type="text" wire:model="password" id="password" placeholder="password karyawan"
                          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                      @error('password')
                          <span class="text-sm text-red-500">
@@ -48,7 +49,7 @@
              <div>
                  <label for="no_hp" class="block text-sm font-medium text-gray-900">No. HP</label>
                  <div class="mt-1">
-                     <input type="text" wire:model="no_hp" id="no_hp"
+                     <input type="text" wire:model="no_hp" id="no_hp" placeholder="no hp karyawan"
                          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                      @error('no_hp')
                          <span class="text-sm text-red-500">

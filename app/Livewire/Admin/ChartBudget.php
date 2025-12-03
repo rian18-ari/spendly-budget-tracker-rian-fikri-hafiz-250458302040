@@ -48,6 +48,6 @@ class ChartBudget extends Component
     
     public function render()
     {
-        return view('livewire.admin.chart-budget');
+        return view('livewire.admin.chart-budget')->extends('layouts.admin');
     }
 }

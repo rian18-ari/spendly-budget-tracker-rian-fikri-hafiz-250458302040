@@ -2,14 +2,23 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Livewire\Admin\Budget;
+use App\Livewire\Admin\ChartBudget;
+use App\Livewire\Admin\Dashboard as AdminDashboard;
+use App\Livewire\Admin\EditBudget;
 use App\Livewire\Admin\EditKaryawan;
+use App\Livewire\Admin\FormBudget;
 use App\Livewire\Admin\FormBudgetMaster;
+use App\Livewire\Admin\Karyawanlist;
+use App\Livewire\Admin\Tambahkaryawan;
+use App\Livewire\Admin\Transaksi as AdminTransaksi;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
 use App\Livewire\Auth\Passwords\Email;
 use App\Livewire\Auth\Passwords\Reset;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Verify;
+use App\Livewire\Karyawan\ChartKaryawan;
 use App\Livewire\Karyawan\Dashboard;
 use App\Livewire\Karyawan\FormTransaksi;
 use App\Livewire\Karyawan\Transaksi;
@@ -31,10 +40,10 @@ Route::view('/', 'welcome')->name('home');
 // karyawan routes
 Route::prefix('karyawan')->middleware(['auth','role:karyawan'])
 ->group( function(){
-    Route::view('/dashboard', 'pages/karyawan/dashboard')->name('dashboard');
-    Route::view('/transaksi','pages/karyawan/transaksi' )->name('transaksi');
-    Route::view('/transaksi/create', 'pages/karyawan/form-transaksi')->name('transaksi.create');
-    Route::view('/chart' , 'pages/karyawan/chart')->name('chart');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/transaksi', Transaksi::class )->name('transaksi');
+    Route::get('/transaksi/create', FormTransaksi::class)->name('transaksi.create');
+    Route::get('/chart' , ChartKaryawan::class)->name('chart');
     Route::get('/gantipassword/{id}', function ($id) {
         return view('pages.karyawan.gantipassword', compact('id'));
     })->name('karyawan.gantipassword');
@@ -45,18 +54,16 @@ Route::prefix('karyawan')->middleware(['auth','role:karyawan'])
 // admin routes
 Route::prefix('admin')->middleware(['auth','role:admin'])
 ->group( function(){    
-    Route::view('/dashboard', 'pages/admin/dashboardadmin')->name('dashboardadmin');
-    Route::view('/transaksi', 'pages/admin/transaksi')->name('transaksiadmin');
-    Route::view('/karyawan', 'pages/admin/karyawanlist')->name('admin.karyawan');
-    Route::view('/karyawan/tambah', 'pages/admin/tambahkaryawan')->name('admin.tambahkaryawan');
-    Route::get('/karyawan/edit/{id}', function ($id) {
-        return view('pages.admin.editkaryawan', compact('id'));
-    })->name('admin.editkaryawan');
-    Route::view('/budget', 'pages/admin/budget')->name('admin.budget');
-    Route::view('/budget/edit/{id}', 'pages/admin/editbudget')->name('admin.editbudget');
-    Route::view('/budget/tambah', 'pages/admin/formbudget')->name('admin.tambahbudget');
+    Route::get('/dashboard', AdminDashboard::class)->name('dashboardadmin');
+    Route::get('/transaksi', AdminTransaksi::class)->name('transaksiadmin');
+    Route::get('/karyawan', Karyawanlist::class)->name('admin.karyawan');
+    Route::get('/karyawan/tambah', Tambahkaryawan::class)->name('admin.tambahkaryawan');
+    Route::get('/karyawan/edit/{id}', Editkaryawan::class)->name('admin.editkaryawan');
+    Route::get('/budget', Budget::class)->name('admin.budget');
+    Route::get('/budget/edit/{id}', EditBudget::class)->name('admin.editbudget');
+    Route::get('/budget/tambah', FormBudget::class)->name('admin.tambahbudget');
     Route::get('/budget/anggaran', FormBudgetMaster::class)->name('admin.budget_master');
-    Route::view('/chart', 'pages/admin/chart-budget')->name('chartadmin');
+    Route::get('/chart', ChartBudget::class)->name('chartadmin');
     Route::get('/transaksi/edit/{id}', function ($id) {
         return view('pages.admin.edittransaksi', compact('id'));
         })->name('admin.edittransaksi');

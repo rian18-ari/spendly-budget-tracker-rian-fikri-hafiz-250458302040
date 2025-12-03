@@ -66,6 +66,6 @@ class EditBudget extends Component
         return view('livewire.admin.edit-budget', [
             'databudget' => budgets::all(),
             'dataKaryawan' => $dataKaryawan
-        ]);
+        ])->extends('layouts.admin');
     }
 }

@@ -1,3 +1,4 @@
+@section('title', 'Dashboard')
 <div>
 
             <!-- Contoh Kartu Dashboard -->

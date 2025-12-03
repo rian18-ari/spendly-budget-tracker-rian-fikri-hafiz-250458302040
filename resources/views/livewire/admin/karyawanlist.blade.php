@@ -1,3 +1,4 @@
+@section('title', 'Karyawan')
 <div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50 w-auto mb-6">

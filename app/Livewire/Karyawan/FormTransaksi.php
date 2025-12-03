@@ -100,6 +100,6 @@ class FormTransaksi extends Component
 
         return view('livewire.karyawan.form-transaksi', [
             'pilihanbudget' => $pilihanbudget
-        ]);
+        ])->extends('layouts.karyawan');
     }
 }

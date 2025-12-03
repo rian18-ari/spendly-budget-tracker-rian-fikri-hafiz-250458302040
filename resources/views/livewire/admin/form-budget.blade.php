@@ -1,3 +1,4 @@
+@section('title', 'Budget')
 <div class="border-2 rounded-lg w-auto h-auto p-6 bg-amber-50">
     <div>
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tambah Budget</h2>
@@ -6,9 +7,9 @@
     <form class="space-y-4" wire:submit.prevent="store">
         {{-- name --}}
         <div>
-            <label for="name" class="block text-sm font-medium text-gray-900">Name</label>
+            <label for="name" class="block text-sm font-medium text-gray-900">Nama</label>
             <div class="mt-1">
-                <input type="text" wire:model="name" id="name"
+                <input type="text" wire:model="name" id="name" placeholder="Nama Budget"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 @error('name')
                     <span class="text-sm text-red-500">
@@ -22,7 +23,7 @@
         <div>
             <label for="total_amount" class="block text-sm font-medium text-gray-900">Jumlah Budget</label>
             <div class="mt-1">
-                <input type="number" wire:model="total_amount" id="total_amount"
+                <input type="number" wire:model="total_amount" id="total_amount" placeholder="Jumlah Budget"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 @error('total_amount')
                     <span class="text-sm text-red-500">
@@ -45,7 +46,7 @@
             <div>
                 <label for="start_date" class="block text-sm font-medium text-gray-900">Dimulai</label>
                 <div class="mt-1">
-                    <input type="date" wire:model="start_date" id="start_date"
+                    <input type="date" wire:model="start_date" id="start_date" placeholder="Tanggal Dimulai"
                         class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     @error('start_date')
                         <span class="text-sm text-red-500">
@@ -59,7 +60,7 @@
             <div>
                 <label for="end_date" class="block text-sm font-medium text-gray-900">Selesai</label>
                 <div class="mt-1">
-                    <input type="date" wire:model="end_date" id="end_date"
+                    <input type="date" wire:model="end_date" id="end_date" placeholder="Tanggal Selesai"
                         class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     @error('end_date')
                         <span class="text-sm text-red-500">
@@ -92,7 +93,7 @@
         <div>
             <label for="detail" class="block text-sm font-medium text-gray-900">Detail</label>
             <div class="mt-1">
-                <textarea wire:model="detail" id="detail" cols="30" rows="10"
+                <textarea wire:model="detail" id="detail" cols="30" rows="10" placeholder="tuliskan detail"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
                 @error('detail')
                     <span class="text-sm text-red-500">

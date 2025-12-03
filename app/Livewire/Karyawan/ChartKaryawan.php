@@ -65,6 +65,6 @@ class ChartKaryawan extends Component
 
     public function render()
     {
-        return view('livewire.karyawan.chart-karyawan'); 
+        return view('livewire.karyawan.chart-karyawan')->extends('layouts.karyawan'); 
     }
 }

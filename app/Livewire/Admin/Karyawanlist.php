@@ -20,7 +20,7 @@ class Karyawanlist extends Component
             'totalkaryawan' => user::all()->count(),
             'jeniskaryawan' => User::where('role', 'karyawan')->count(),
             'totaladmin' => User::where('role', 'admin')->count(),
-        ]);
+        ])->extends('layouts.admin');
     }
     
     public function export()

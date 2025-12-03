@@ -34,6 +34,6 @@ class Transaksi extends Component
             'disetujui' => transaction::where('status', 'di setujui')->count(),
             'menunggu' => transaction::where('status', 'menunggu')->count(),
             'flowtransaksi' => transaction::all()->count(),
-        ]);
+        ])->extends('layouts.karyawan');
     }
 }

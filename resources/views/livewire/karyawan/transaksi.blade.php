@@ -1,7 +1,5 @@
+@section('title', 'Transaksi')
 <div>
-
-
-
     <div class="flex flex-col">
         <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50 w-auto mb-6">
             <h3 class="text-xl font-medium text-gray-500 pb-2">Saldo Saat Ini</h3>

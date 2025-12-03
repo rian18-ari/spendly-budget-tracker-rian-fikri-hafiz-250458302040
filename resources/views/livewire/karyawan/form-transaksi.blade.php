@@ -1,3 +1,4 @@
+ @section('title', 'Transaksi')
  <div class="border-2 rounded-lg w-auto h-auto p-6 bg-amber-50">
      <div>
          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Form Tambah Transaksi</h2>
@@ -117,14 +118,4 @@
          </div>
      </form>
      {{-- form end --}}
-
-     @push('scripts')
-         <script>
-             document.addEventListener('livewire:initialized', () => {
-                 @this.on('show-popup', (event) => {
-                     Swal.fire("SweetAlert2 is working!");
-                 });
-             });
-         </script>
-     @endpush
  </div>

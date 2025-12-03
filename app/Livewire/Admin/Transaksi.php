@@ -25,6 +25,6 @@ class Transaksi extends Component
             'ditolak' => transaction::where('status', 'di tolak')->count(),
             'disetujui' => transaction::where('status', 'di setujui')->count(),
             'menunggu' => transaction::where('status', 'menunggu')->count(),
-        ]);
+        ])->extends('layouts.admin');
     }
 }

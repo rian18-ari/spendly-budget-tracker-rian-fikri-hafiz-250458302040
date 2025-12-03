@@ -47,6 +47,6 @@ class Tambahkaryawan extends Component
     
     public function render()
     {
-        return view('livewire.admin.tambahkaryawan');
+        return view('livewire.admin.tambahkaryawan')->extends('layouts.admin');
     }
 }

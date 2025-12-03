@@ -40,6 +40,6 @@ class GantiPassword extends Component
 
     public function render()
     {
-        return view('livewire.karyawan.ganti-password');
+        return view('livewire.karyawan.ganti-password')->extends('layouts.karyawan');
     }
 }

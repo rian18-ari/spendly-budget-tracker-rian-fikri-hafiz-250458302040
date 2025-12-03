@@ -49,6 +49,6 @@ class Dashboard extends Component
             'dataChart' => budgets::all(),
             'budgetAktif' => budgets::all()->count(),
             // dd($budgetmaster)
-        ]);
+        ])->extends('layouts.admin');
     }
 }

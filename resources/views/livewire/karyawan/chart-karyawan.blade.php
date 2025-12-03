@@ -1,3 +1,4 @@
+@section('title', 'Statistik')
 <div class="bg-white p-6 rounded-xl shadow-lg border-2">
     
     <div class="flex justify-between items-center mb-4">

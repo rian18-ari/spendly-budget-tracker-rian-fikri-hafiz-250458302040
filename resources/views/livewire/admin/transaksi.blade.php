@@ -1,3 +1,4 @@
+@section('title', 'Transaksi')
 <div>
     <div class="grid grid-cols-4 gap-4">
         <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50 w-auto mb-6">
