@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'role',
         'no_hp',
+        'image'
     ];
 
      public function createdBudgets()

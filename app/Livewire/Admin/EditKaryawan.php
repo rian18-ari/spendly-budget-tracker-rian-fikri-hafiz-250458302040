@@ -47,7 +47,7 @@ class EditKaryawan extends Component
     public function render()
     {
         return view('livewire.admin.edit-karyawan', [
-            'datakaryawan' => User::all() 
+            'datakaryawan' => User::where('id', $this->user->id)->first(),
         ])->extends('layouts.admin');
     }
 }

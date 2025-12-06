@@ -12,6 +12,7 @@ use App\Livewire\Admin\FormBudget;
 use App\Livewire\Admin\FormBudgetMaster;
 use App\Livewire\Admin\GantiPassword;
 use App\Livewire\Admin\Karyawanlist;
+use App\Livewire\Admin\ProfilAdmin;
 use App\Livewire\Admin\Tambahkaryawan;
 use App\Livewire\Admin\Transaksi as AdminTransaksi;
 use App\Livewire\Auth\Login;
@@ -24,6 +25,7 @@ use App\Livewire\Karyawan\ChartKaryawan;
 use App\Livewire\Karyawan\Dashboard;
 use App\Livewire\Karyawan\FormTransaksi;
 use App\Livewire\Karyawan\GantiPassword as KaryawanGantiPassword;
+use App\Livewire\Karyawan\Profile;
 use App\Livewire\Karyawan\Transaksi;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +50,7 @@ Route::prefix('karyawan')->middleware(['auth','role:karyawan'])
     Route::get('/transaksi/create', FormTransaksi::class)->name('transaksi.create');
     Route::get('/chart' , ChartKaryawan::class)->name('chart');
     Route::get('/gantipassword/{id}', KaryawanGantiPassword::class)->name('karyawan.gantipassword');
+    Route::get('/profile', Profile::class)->name('karyawan.profile');
 });
 
 
@@ -67,6 +70,7 @@ Route::prefix('admin')->middleware(['auth','role:admin'])
     Route::get('/chart', ChartBudget::class)->name('chartadmin');
     Route::get('/transaksi/edit/{id}', EditTransaksi::class)->name('admin.edittransaksi');
     Route::get('/gantipassword/{id}', GantiPassword::class)->name('admin.gantipassword'); 
+    Route::get('/profile', ProfilAdmin::class)->name('admin.profile');
 });
 
 

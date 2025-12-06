@@ -4,14 +4,17 @@ namespace App\Livewire\Admin;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Tambahkaryawan extends Component
 {
+    use WithFileUploads;
     public $name;
     public $email;
     public $password;
     public $role;
     public $no_hp;
+    public $image;
 
     public function store()
     {
@@ -21,7 +24,8 @@ class Tambahkaryawan extends Component
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
             'role' => 'required|in:admin,karyawan',
-            'no_hp' => 'required|min:9|unique:users,no_hp'
+            'no_hp' => 'required|min:9|unique:users,no_hp',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ],[
             'name.required' => 'nama harap di isi!',
             'email.required' => 'email harap di isi!',
@@ -29,7 +33,11 @@ class Tambahkaryawan extends Component
             'password.required' => 'password harap di isi!',
             'role.required' => 'role harap di pilih!',
             'no_hp.required' => 'nomor HP harap di isi!',
-            'no_hp.unique' => 'nomor HP sudah digunakan'
+            'no_hp.unique' => 'nomor HP sudah digunakan',
+            'image.required' => 'foto harap di isi!',
+            'image.image' => 'foto harus berupa gambar!',
+            'image.mimes' => 'foto harus berupa gambar!',
+            'image.max' => 'foto harus berukuran maksimal 2MB!',
         ]);
 
         User::create([
@@ -38,6 +46,7 @@ class Tambahkaryawan extends Component
             'no_hp' => $this->no_hp,
             'password' => bcrypt($this->password),
             'role' => $this->role,
+            'image' => $this->image->store('foto', 'public'),
         ]);
 
         session()->flash('success', 'Karyawan berhasil ditambahkan.');

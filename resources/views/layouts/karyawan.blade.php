@@ -107,8 +107,15 @@
                 <el-dropdown class="inline-block">
                     <button
                         class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white inset-ring-1 inset-ring-white/5 hover:bg-white/20">
-                        <div class="ring-2 ring-gray-600 w-auto h-auto p-1 bg-gray-300 rounded-full">
-                            <i class="fa-solid fa-user text-gray-600 text-2xl"></i>
+                        <div class="ring-2 ring-gray-600 w-auto h-auto bg-gray-300 rounded-full">
+                            @auth
+                                @if (!Auth::user()->image)
+                                    <i class="fa-solid fa-user text-gray-600 text-2xl"></i>
+                                @else
+                                    <img src="{{ asset('storage/' . Auth::user()->image) }}" alt=""
+                                        class="w-10 h-10 rounded-full">
+                                @endif
+                            @endauth
                         </div>
                     </button>
 
@@ -116,7 +123,7 @@
                         class="w-56 origin-top-right rounded-lg border-2 bg-amber-50 outline-1 -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
                         <div class="py-1">
                             @auth
-                                <p class="block px-4 py-2 ">{{ Auth::user()->name }}</p>
+                                <a href="{{route('karyawan.profile')}}" class="block px-4 py-2 ">{{ Auth::user()->name }}</a>
                             @endauth
                             <hr class="mx-auto w-50 border-1 mb-2">
                             <p

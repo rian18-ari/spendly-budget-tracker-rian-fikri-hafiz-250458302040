@@ -82,7 +82,7 @@
                  </div>
              </div>
              <div>
-                <label for="image" class="block text-sm font-medium text-gray-900">Image</label>
+                <label for="image" class="block text-sm font-medium text-gray-900">Foto Struk Transaksi</label>
                 <div class="mt-1">
                     <img src="{{ asset('storage/' . $transaksi->image) }}" alt="">
                 </div>
