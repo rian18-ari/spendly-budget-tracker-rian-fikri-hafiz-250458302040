@@ -4,7 +4,7 @@
         <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50 w-auto mb-6">
             <div class="flex justify-between">
                 <h3 class="text-xl font-medium text-gray-500 pb-2">Saldo Budget</h3>
-                <a href="{{ route('admin.budget_master') }}">
+                <a wire:navigate href="{{ route('admin.budget_master') }}">
                     <i class="fa-solid fa-plus text-gray-500"></i>
                 </a>
             </div>

@@ -134,7 +134,8 @@
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-cyan-900 leading-tight">Track Keuangan
                     dengan mudah & cermat !</h2>
                 <p class="mb-8 text-lg text-cyan-700">Permudah track anggaran dengan pelacakan real time dan laporan yang akurat.</p>
-                <a href="/dashboard">
+                <a href="
+                {{route('login')}}">
                     <button class="px-6 py-3 bg-cyan-900 text-white rounded-lg hover:bg-cyan-800 transition duration-300 shadow-lg">Mulai Sekarang</button>
                 </a>
             </div>

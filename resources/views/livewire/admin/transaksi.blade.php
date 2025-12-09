@@ -111,7 +111,7 @@
                                                     {{ $item->date }}</p>
                                             </td>
                                             <td class="px-5 py-4 sm:px-6">
-                                                <a href="{{ route('admin.edittransaksi', ['id' => $item->id]) }}"
+                                                <a wire:navigate href="{{ route('admin.edittransaksi', ['id' => $item->id]) }}"
                                                     class="rounded-lg bg-yellow-500 w-auto h-auto p-2 text-white border-2 border-yellow-600"><i
                                                         class="fa-solid fa-eye"></i></a>
                                             </td>

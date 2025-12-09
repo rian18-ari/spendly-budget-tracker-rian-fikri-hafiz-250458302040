@@ -3,7 +3,14 @@
     <div class="flex gap-4">
         <div class="w-1/3 flex flex-col gap-2 items-center">
             <div class="border-2 rounded-full w-60 h-60 border-gray-500 bg-amber-50">
-                <img src="{{ asset('storage/' . $user->image)?? 'https://ui-avatars.com/api/?name=' . $user->name }}" alt="" class="w-full h-full rounded-full">
+                @auth
+                    @if (!$profil->image)
+                        <img src="{{ asset('asset/img/profil default instagram.jpeg') }}" class="w-full h-full rounded-full"
+                            alt="">
+                    @else
+                        <img src="{{ asset('storage/' . $profil->image) }}" class="w-full h-full rounded-full" alt="">
+                    @endif
+                @endauth
             </div>
             <form wire:submit.prevent="updateProfile" class="gap-2 flex flex-col">
                 <label class="block w-full sm:w-2/3">
@@ -38,7 +45,7 @@
                 <p class="text-lg font-semibold">Diupdate: <span class="font-normal">{{ $user->updated_at->format('d-m-Y') }}</span></p>
             </div>
             <div class="flex justify-end">
-                <a href="{{route('dashboard')}}" class="w-1/4 text-center px-6 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition duration-150 ease-in-out">Kembali</a>
+                <a wire:navigate href="{{route('dashboard')}}" class="w-1/4 text-center px-6 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition duration-150 ease-in-out">Kembali</a>
             </div>
         </div>
     </div>

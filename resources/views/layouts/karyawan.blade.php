@@ -143,7 +143,7 @@
                             @endauth
                             <p
                                 class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
-                                <a href="{{ route('karyawan.gantipassword', Auth::user()->id) }}">Ganti Password</a>
+                                <a wire:navigate href="{{ route('karyawan.gantipassword', Auth::user()->id) }}">Ganti Password</a>
                             </p>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
