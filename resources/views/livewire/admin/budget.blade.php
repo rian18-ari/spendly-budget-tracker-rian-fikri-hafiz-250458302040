@@ -9,7 +9,7 @@
                 </a>
             </div>
             <h1 class="text-3xl font-medium">Rp.
-                {{ number_format($budget_master->first()?->budget ?? 0, '0', ',', '.') }}</h1>
+                {{ number_format($budget_master->budget ?? 0, '0', ',', '.') }}</h1>
         </div>
         <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50 w-auto mb-6">
             <h3 class="text-xl font-medium text-gray-500 pb-2">Budget Aktif</h3>
