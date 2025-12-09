@@ -50,11 +50,11 @@
     {{-- Tempat untuk meletakkan modal/toast Anda --}}
     <!-- 1. FIXED SIDEBAR (Warna: Biru Tua) -->
     <nav :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
-        class="fixed inset-y-0 left-0 z-50 w-50 bg-orange-200 border-r-2 rounded-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:flex-shrink-0 -translate-x-full">
+        class="fixed inset-y-0 left-0 z-50 w-64 bg-orange-200 border-r-2 rounded-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:flex-shrink-0 -translate-x-full">
 
         <div class="p-2 mx-2 my-4 border-2 h-22 flex items-center justify-between rounded-lg bg-gray-50">
             <img src="{{ asset('asset/img/spendly-high-resolution-logo-transparent.png') }}" alt=""
-                class="w-70">
+                class="w-48">
             <button @click="sidebarOpen = false"
                 class="lg:hidden text-cyan-900 hover:text-indigo-400 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -140,7 +140,7 @@
                             @endauth
                             <hr class="mx-auto w-50 border-1 mb-2">
                             <p
-                                class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
+                                class="block px-4 py-2 text-sm text-gray-700 focus:bg-white/5 focus:text-white focus:outline-hidden">
                                 @if (Auth::user()->role === 'admin')
                                     <span
                                         class="rounded-lg bg-red-200 w-auto h-auto p-1 border-red-300 border-2">admin</span>
@@ -151,8 +151,9 @@
                             </p>
                             @endif
                             <p
-                                class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
-                                <a wire:navigate href="{{ route('admin.gantipassword', Auth::user()->id) }}">Ganti Password</a>
+                                class="block px-4 py-2 text-sm text-gray-700 focus:bg-white/5 focus:text-white focus:outline-hidden">
+                                <a wire:navigate href="{{ route('admin.gantipassword', Auth::user()->id) }}">Ganti
+                                    Password</a>
                             </p>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf

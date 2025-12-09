@@ -1,7 +1,7 @@
 @section('title', 'Budget')
-<div x-data="{ showModal: false, budgetId: null }">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-        <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50 w-auto mb-6">
+<div x-data="{ showModal: false, budgetId: null }" class="overflow-x-auto w-md lg:w-full h-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50">
             <div class="flex justify-between">
                 <h3 class="text-xl font-medium text-gray-500 pb-2">Saldo Budget</h3>
                 <a wire:navigate href="{{ route('admin.budget_master') }}">
@@ -11,26 +11,27 @@
             <h1 class="text-3xl font-medium">Rp.
                 {{ number_format($budget_master->budget ?? 0, '0', ',', '.') }}</h1>
         </div>
-        <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50 w-auto mb-6">
+        <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50">
             <h3 class="text-xl font-medium text-gray-500 pb-2">Budget Aktif</h3>
             <h1 class="text-3xl font-medium">{{ $totalBudget }}</h1>
         </div>
     </div>
 
-    <div class="space-y-5 sm:space-y-6">
+    <div class="space-y-5 sm:space-y-6 overflow-x-auto w-full lg:w-full">
         <div class="rounded-2xl border-2 shadow-lg border-gray-200 bg-white dark:border-gray-800">
-            <div class="px-6 py-5 flex flex-row">
+            <div class="px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <h3 class="font-bold text-2xl text-gray-800">Data Budget</h3>
                 <div wire:loading class="text-gray-500 mx-5 mt-2">
                     Mohon Tunggu sebentar....
                 </div><!---->
-                <div class="justify-end flex flex-1">
-                    <div class="text-base text-gray-50 flex flex-row items-center justify-between">
+                <div class="justify-end flex w-full sm:w-auto">
+                    <div
+                        class="text-base text-gray-50 flex flex-row items-center justify-between w-full sm:w-auto overflow-x-auto no-scrollbar">
                         <button wire:click="export"
-                            class="px-2 py-3 border-2 rounded-lg bg-indigo-500 w-auto h-9 items-center flex align-middle mr-2"><i
+                            class="px-2 py-3 border-2 rounded-lg bg-indigo-500 whitespace-nowrap w-auto h-9 items-center flex align-middle mr-2"><i
                                 class="fa-solid fa-file-excel mr-2"></i> EXCEL</button>
                         <a wire:navigate href="{{ route('admin.tambahbudget') }}"
-                            class="px-2 py-3 border-2 rounded-lg bg-indigo-500 w-auto h-9 items-center flex align-middle mr-2">
+                            class="px-2 py-3 border-2 rounded-lg bg-indigo-500 whitespace-nowrap w-auto h-9 items-center flex align-middle mr-2">
                             <i class="fa-solid fa-plus"></i>Tambah</a>
                     </div>
                 </div>
@@ -40,7 +41,7 @@
                     <div class="overflow-hidden rounded-xl border border-gray-200 bg-gray-50 dark:border-gray-800">
                         <div class="max-w-full overflow-x-auto custom-scrollbar"
                             wire:key="unique-budget-table-container">
-                            <table class="min-w-full">
+                            <table class="w-full min-w-max">
                                 <thead>
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
                                         <th class="px-5 py-3 text-left w-1/12 sm:px-6">

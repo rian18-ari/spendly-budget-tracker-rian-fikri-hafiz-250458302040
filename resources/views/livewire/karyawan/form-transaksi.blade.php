@@ -6,7 +6,7 @@
 
      {{-- form start --}}
      <form class="gap-x-4" wire:submit.prevent="store">
-         <div class="grid grid-flow-col grid-cols-2 gap-4">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
              <div class="">
                  {{-- keterangan --}}
                  <div>
@@ -96,19 +96,19 @@
                          @enderror
                      </div>
                  </div>
-                </div>
-                 <div class="">
-                     <label for="image" class="block text-sm font-medium text-gray-900">Foto Struk Transaksi</label>
-                     <div class="mt-1">
-                         <input type="file" wire:model="image" id="image" placeholder="Upload Struk Transaksi"
-                             class="block h-75 bg-white w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                         @error('image')
-                             <span class="text-sm text-red-500">
-                                 {{ $message }}
-                             </span>
-                         @enderror
-                     </div>
+             </div>
+             <div class="">
+                 <label for="image" class="block text-sm font-medium text-gray-900">Foto Struk Transaksi</label>
+                 <div class="mt-1">
+                     <input type="file" wire:model="image" id="image" placeholder="Upload Struk Transaksi"
+                         class="block h-75 bg-white w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                     @error('image')
+                         <span class="text-sm text-red-500">
+                             {{ $message }}
+                         </span>
+                     @enderror
                  </div>
+             </div>
          </div>
          <div class="bg-gray-700/25 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 mt-4 w-full">
              <a wire:navigate href="{{ route('transaksi') }}" command="close" commandfor="dialog"

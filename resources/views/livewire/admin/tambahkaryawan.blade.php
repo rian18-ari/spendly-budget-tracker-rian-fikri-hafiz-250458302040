@@ -5,7 +5,7 @@
      </div>
      {{-- form start --}}
      <form class="gap-x-4" wire:submit.prevent="store">
-         <div class="grid grid-cols-2 gap-4">
+         <div class="grid lg:grid-cols-2 gap-4">
              <div>
                  <label for="image">Foto</label>
                  <div class="mt-1">

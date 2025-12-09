@@ -1,6 +1,6 @@
 @section('title', 'Transaksi')
-<div>
-    <div class="grid grid-cols-4 gap-4">
+<div class="w-md lg:w-full md:w-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="p-6 rounded-xl shadow-lg border-2 bg-amber-50 w-auto mb-6">
             <h3 class="text-xl font-medium text-gray-500 pb-2">Jumlah Transaksi</h3>
             <h1 class="text-3xl font-medium">{{ $flowtransaksi }}</h1>
@@ -21,12 +21,12 @@
 
     <div class="space-y-5 sm:space-y-6">
         <div class="rounded-2xl border-2 shadow-lg border-gray-200 bg-white dark:border-gray-800">
-            <div class="px-6 py-5 flex flex-row">
+            <div class="px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <h3 class="font-bold text-2xl text-gray-800">Detail Transaksi</h3>
                 <div wire:loading class="text-gray-500 mx-5 mt-2">
                     Mohon Tunggu sebentar....
                 </div>
-                <div class="justify-end gap-2 flex flex-1">
+                <div class="justify-end gap-2 flex w-full sm:w-auto">
                     <div class="text-base text-gray-50 flex flex-row items-center justify-between">
                         <button wire:click.prevent="export"
                             class="px-2 py-3 border-2 rounded-lg bg-indigo-500 w-auto h-9 items-center flex align-middle mr-2"><i
@@ -38,7 +38,7 @@
                 <div class="space-y-5">
                     <div class="overflow-hidden rounded-xl border border-gray-200 bg-gray-50 dark:border-gray-800">
                         <div class="max-w-full overflow-x-auto custom-scrollbar">
-                            <table class="min-w-full">
+                            <table class="w-full min-w-max">
                                 <thead>
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
                                         <th class="px-5 py-3 text-left w-1/12 sm:px-6">
@@ -111,7 +111,8 @@
                                                     {{ $item->date }}</p>
                                             </td>
                                             <td class="px-5 py-4 sm:px-6">
-                                                <a wire:navigate href="{{ route('admin.edittransaksi', ['id' => $item->id]) }}"
+                                                <a wire:navigate
+                                                    href="{{ route('admin.edittransaksi', ['id' => $item->id]) }}"
                                                     class="rounded-lg bg-yellow-500 w-auto h-auto p-2 text-white border-2 border-yellow-600"><i
                                                         class="fa-solid fa-eye"></i></a>
                                             </td>

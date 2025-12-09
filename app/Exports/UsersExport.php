@@ -4,10 +4,10 @@ namespace App\Exports;
 
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use MaatWebsite\Excel\Concerns\WithHeading;
-use MaatWebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithMapping;
 
-class UsersExport implements FromCollection
+class UsersExport implements FromCollection, WithHeadings, WithMapping
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -17,17 +17,26 @@ class UsersExport implements FromCollection
         return User::select('id', 'name', 'email', 'no_hp', 'role')->get();
     }
 
-    public function heading(): array
+    /**
+     * Mendefinisikan baris header (judul kolom) di Excel.
+     * @return array
+     */
+    public function headings(): array
     {
         return [
-            'id',
-            'nama',
-            'email',
-            'No. HP',
-            'role',
+            'ID',
+            'NAMA',
+            'EMAIL',
+            'NO. HP',
+            'ROLE',
         ];
     }
 
+    /**
+     * Memetakan data dari Model ke baris Excel.
+     * @param mixed $user
+     * @return array
+     */
     public function map($user): array
     {
         return [

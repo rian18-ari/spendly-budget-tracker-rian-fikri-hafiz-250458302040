@@ -1,7 +1,7 @@
 @section('title', 'Profile')
 <div class="border-2 rounded-lg w-auto h-auto p-2 bg-amber-50">
-    <div class="flex gap-4">
-        <div class="w-1/3 flex flex-col gap-2 items-center">
+    <div class="flex flex-col lg:flex-row gap-4 items-center">
+        <div class="w-2/3 flex flex-col gap-2 items-center">
             <div class="border-2 rounded-full w-60 h-60 border-gray-500 bg-amber-50">
                 @auth
                     @if (!$profil->image)
@@ -12,7 +12,7 @@
                     @endif
                 @endauth
             </div>
-            <form wire:submit.prevent="updateProfile" class="gap-2 flex flex-col">
+            <form wire:submit.prevent="updateProfile" class="gap-2 flex flex-col w-full">
                 <label class="block w-full sm:w-2/3">
                     <span class="sr-only">Pilih File Foto</span>
                     <input type="file" wire:model="image"

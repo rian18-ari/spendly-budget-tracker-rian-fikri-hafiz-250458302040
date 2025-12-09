@@ -1,18 +1,18 @@
 @section('title', 'Statistik')
-<div class="p-6 bg-white shadow-xl rounded-lg sm:p-8 border-2">
+<div class="p-6 bg-white shadow-xl w-md lg:w-full md:w-64 h-auto rounded-lg sm:p-8 border-2">
     <!-- Judul Komponen -->
-    <h1 class="text-3xl font-extrabold text-gray-900 mb-6">Ringkasan Data{{$value}}</h1>
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-6">Ringkasan Data{{ $value }}</h1>
 
 
     <!-- Tampilkan data dalam Chart -->
-    <div class="flex justify-between">
-        <div class="w-auto">
+    <div class="flex flex-col lg:flex-row justify-between gap-6">
+        <div class="w-full lg:w-1/2">
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <canvas id="budgetChartpie" class="w-auto h-96"></canvas>
+                <canvas id="budgetChartpie" class="w-full h-96"></canvas>
             </div>
         </div>
         <!-- Tampilkan data mentah dalam bentuk tabel -->
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto w-full lg:w-1/2">
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Data Mentah (Anggaran per Nama Kegiatan)</h2>
             <table class="min-w-full divide-y divide-gray-200 border border-gray-300 rounded-lg">
                 <thead class="bg-gray-100">

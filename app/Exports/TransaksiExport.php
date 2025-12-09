@@ -7,7 +7,7 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
-class TransaksiExport implements FromCollection
+class TransaksiExport implements FromCollection, WithHeadings, WithMapping
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -17,18 +17,27 @@ class TransaksiExport implements FromCollection
         return transaction::select('id', 'amount', 'note', 'date', 'type', 'status')->get();
     }
 
-    public function heading(): array
+    /**
+     * Mendefinisikan baris header (judul kolom) di Excel.
+     * @return array
+     */
+    public function headings(): array
     {
         return [
-            'id',
-            'nominal',
-            'nama transaksi',
-            'tanggal',
-            'tipe',
-            'status'
+            'ID',
+            'NOMINAL',
+            'NAMA TRANSAKSI',
+            'TANGGAL',
+            'TIPE',
+            'STATUS'
         ];
     }
 
+    /**
+     * Memetakan data dari Model ke baris Excel.
+     * @param mixed $transaction
+     * @return array
+     */
     public function map($transaction): array
     {
         return [
