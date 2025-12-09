@@ -44,7 +44,7 @@ class Budget extends Component
         return view('livewire.admin.budget',[
             'title' => 'Budget Management',
             'budgets' => budgets::all(), 
-            'budget_master' => ModelsBudgetmaster::all(),
+            'budget_master' => ModelsBudgetmaster::where('tahun_anggaran', now()->year)->first(),
             'totalBudget' => budgets::count(),
         ])->extends('layouts.admin');
     }

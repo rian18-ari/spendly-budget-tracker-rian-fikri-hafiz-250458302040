@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Models\budgetmaster;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -18,16 +19,20 @@ class FormBudgetMaster extends Component
 
     public function simpan(){
 
+        $tahun_sekarang = Carbon::now()->year;
+
         // dd(Auth::id());
         $this->validate([
             'budget' => 'required|numeric',
-            'tahun_anggaran' => 'required|numeric',
-            'detail' => 'required|string'
+            'tahun_anggaran' => 'required|numeric|unique:budgetmasters,tahun_anggaran|in:'.$tahun_sekarang,
+            'detail' => 'required|string',
         ],[
             'budget.numeric' => 'Hanya Boleh Angka',
             'budget.required' => 'Harus Di isi!',
-            'tahun-anggaran.required' => 'Harus Di isi',
-
+            'tahun_anggaran.required' => 'Harus Di isi',
+            'tahun_anggaran.unique' => 'Tahun anggaran sudah ada',
+            'detail.required' => 'Harus Di isi',
+            'tahun_anggaran.in' => 'Hanya boleh 1 anggaran dalam 1 tahun'
         ]);
 
         $user = Auth::user();

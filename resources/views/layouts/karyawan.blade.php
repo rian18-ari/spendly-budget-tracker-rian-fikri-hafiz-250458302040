@@ -110,7 +110,8 @@
                         <div class="ring-2 ring-gray-600 w-auto h-auto bg-gray-300 rounded-full">
                             @auth
                                 @if (!Auth::user()->image)
-                                    <i class="fa-solid fa-user text-gray-600 text-2xl"></i>
+                                    <img src="{{ asset('asset/img/profil default instagram.jpeg') }}" alt=""
+                                        class="w-10 h-10 rounded-full">
                                 @else
                                     <img src="{{ asset('storage/' . Auth::user()->image) }}" alt=""
                                         class="w-10 h-10 rounded-full">
@@ -123,13 +124,10 @@
                         class="w-56 origin-top-right rounded-lg border-2 bg-amber-50 outline-1 -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
                         <div class="py-1">
                             @auth
-                                <a href="{{route('karyawan.profile')}}" class="block px-4 py-2 ">{{ Auth::user()->name }}</a>
+                                <a href="{{ route('karyawan.profile') }}"
+                                    class="block px-4 py-2 ">{{ Auth::user()->name }}</a>
                             @endauth
                             <hr class="mx-auto w-50 border-1 mb-2">
-                            <p
-                                class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
-                                <a href="{{ route('karyawan.gantipassword', Auth::user()->id) }}">Ganti Password</a>
-                            </p>
                             @auth
                                 <p
                                     class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
@@ -143,6 +141,10 @@
                                 </p>
                                 @endif
                             @endauth
+                            <p
+                                class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
+                                <a href="{{ route('karyawan.gantipassword', Auth::user()->id) }}">Ganti Password</a>
+                            </p>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit"

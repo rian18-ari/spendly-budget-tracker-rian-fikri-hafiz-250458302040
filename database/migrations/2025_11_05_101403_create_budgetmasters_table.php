@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('budgetmasters', function (Blueprint $table) {
             $table->id();
             $table->decimal('budget', 15,0);
-            $table->year('tahun_anggaran');
+            $table->year('tahun_anggaran')->unique();
             $table->text('detail');
             $table->unsignedBigInteger('user_id');
             $table->foreign('id')->references('id')->on('users')->onDelete('cascade');

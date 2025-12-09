@@ -120,11 +120,13 @@
                         class="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white/10 px-3 py-2 text-sm font-semibold text-white inset-ring-1 inset-ring-white/5 hover:bg-white/20">
                         <div class="ring-2 ring-gray-600 w-auto h-auto bg-gray-300 rounded-full">
                             @auth
-                            @if (!Auth::user()->image)
-                            <img src="{{ asset('asset/img/profil default instagram.jpeg') }}" class="w-10 h-10 rounded-full" alt="">
-                            @else
-                                <img src="{{ asset('storage/' . Auth::user()->image) }}" class="w-10 h-10 rounded-full" alt="">
-                            @endif
+                                @if (!Auth::user()->image)
+                                    <img src="{{ asset('asset/img/profil default instagram.jpeg') }}"
+                                        class="w-10 h-10 rounded-full" alt="">
+                                @else
+                                    <img src="{{ asset('storage/' . Auth::user()->image) }}" class="w-10 h-10 rounded-full"
+                                        alt="">
+                                @endif
                             @endauth
                         </div>
                     </button>
@@ -133,13 +135,10 @@
                         class="w-56 origin-top-right rounded-lg border-2 bg-amber-50 outline-1 -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
                         <div class="py-1">
                             @auth
-                                <a href="{{route('admin.profile')}}" class="block px-4 py-2 ">{{ Auth::user()->name }}</a>
+                                <a href="{{ route('admin.profile') }}"
+                                    class="block px-4 py-2 ">{{ Auth::user()->name }}</a>
                             @endauth
                             <hr class="mx-auto w-50 border-1 mb-2">
-                            <p
-                                class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
-                                <a href="{{ route('admin.gantipassword', Auth::user()->id) }}">Ganti Password</a>
-                            </p>
                             <p
                                 class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
                                 @if (Auth::user()->role === 'admin')
@@ -151,6 +150,10 @@
                                 class="rounded-lg bg-yellow-200 w-auto h-auto p-1 border-yellow-300 border-2">Karyawan</span>
                             </p>
                             @endif
+                            <p
+                                class="block px-4 py-2 text-sm text-gray-70000 focus:bg-white/5 focus:text-white focus:outline-hidden">
+                                <a href="{{ route('admin.gantipassword', Auth::user()->id) }}">Ganti Password</a>
+                            </p>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit"

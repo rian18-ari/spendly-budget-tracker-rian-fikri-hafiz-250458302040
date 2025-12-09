@@ -29,7 +29,7 @@ class Dashboard extends Component
             'balance' => $totalSaldo,
             'total_pengeluaran' => $totalpengeluaran->sum('amount'),
             'nominalTerbesar' => $maxTransactionObject,
-
+            'totalTransaksi' => $totalpengeluaran->count(),
         ])->extends('layouts.karyawan');
     }
 }

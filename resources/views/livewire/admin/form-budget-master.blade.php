@@ -25,7 +25,7 @@
                  <div class="mt-1">
                      <input type="number" wire:model="tahun_anggaran" id="tahun_anggaran" placeholder="Tahun anggaran"
                          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                     @error('email')
+                     @error('tahun_anggaran')
                          <span class="text-sm text-red-500">
                              {{ $message }}
                          </span>
@@ -34,11 +34,11 @@
              </div>
              {{-- datail --}}
              <div>
-                 <label for="amount" class="block text-sm font-medium text-gray-900">Detail</label>
+                 <label for="detail" class="block text-sm font-medium text-gray-900">Detail</label>
                  <div class="mt-1">
                      <input type="text" wire:model="detail" id="detail" placeholder="tulis detail"
                          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                     @error('password')
+                     @error('detail')
                          <span class="text-sm text-red-500">
                              {{ $message }}
                          </span>
